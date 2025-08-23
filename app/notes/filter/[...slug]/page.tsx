@@ -1,6 +1,6 @@
 // app/notes/filter/[...slug]/page.tsx
 import fetchNotes from "@/lib/api";
-import NotesClient from "@/app/notes/tilter/[...slug]/Notes.client";
+import NotesClient from "@/app/notes/filter/[...slug]/Notes.client";
 import { tagOptions, Tag } from "@/types/note";
 
 type Props = { params: Promise<{ slug?: string[] }> };
