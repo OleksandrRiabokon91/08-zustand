@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "NoteHub - Smart Note-Taking App",
     description:
       "NoteHub App - create, edit, and organize your notes with tags, search, and filters.",
-    url: "https://notehub.goit.global",
+    url: "https://08-zustand-omega-one.vercel.app",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",

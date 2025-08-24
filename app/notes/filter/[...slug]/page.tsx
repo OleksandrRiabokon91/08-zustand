@@ -12,10 +12,7 @@ export async function generateMetadata({ params }: Props) {
     ? (maybeTag as Tag)
     : "All";
 
-  const title =
-    tag === "All"
-      ? "All Notes - NoteHub"
-      : `Notes filtered by ${tag} - NoteHub`;
+  const title = tag === "All" ? "All Notes" : `Notes tag ${tag}`;
 
   const description =
     tag === "All"
@@ -30,8 +27,8 @@ export async function generateMetadata({ params }: Props) {
       description,
       url:
         tag === "All"
-          ? "https://notehub.com/notes/filter/all"
-          : `https://notehub.com/notes/filter/${tag}`,
+          ? "https://08-zustand-omega-one.vercel.app/notes/filter/all"
+          : `https://08-zustand-omega-one.vercel.app/notes/filter/${tag}`,
       images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
     },
   };

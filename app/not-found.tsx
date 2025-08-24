@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "404 - Page Not Found | NoteHub",
     description:
       "This page does not exist on NoteHub. Please return to the homepage.",
-    url: "https://notehub.goit.global/not-found",
+    url: "https://08-zustand-omega-one.vercel.app",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",

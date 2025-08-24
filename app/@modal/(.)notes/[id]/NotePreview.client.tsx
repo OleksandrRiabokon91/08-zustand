@@ -1,5 +1,4 @@
 // app/@modal/(.)notes/NotePreview.client.tsx
-
 "use client";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";

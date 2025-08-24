@@ -34,10 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   try {
     const note = await getSingleNote(id);
-
-    const title = note.title.slice(0, 12) || "NoteHub - note";
+    const title = note.title.slice(0, 9);
     const description =
-      note.content?.slice(0, 50) || "NoteHub - detailed view of your note";
+      note.content?.slice(0, 14) || "NoteHub - detailed view of your note";
 
     return {
       title,
@@ -45,13 +44,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title,
         description,
-        url: `https://notehub.goit.global/notes/${note.id}`,
+        url: `https://08-zustand-omega-one.vercel.app/notes/${note.id}`,
         images: [
           {
             url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
             width: 1200,
             height: 630,
-            alt: note.title || "NoteHub",
+            alt: title || "NoteHub",
           },
         ],
         type: "website",
@@ -64,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title: "NoteHub - note",
         description: "View note details",
-        url: "https://notehub.goit.global/notes/",
+        url: "https://08-zustand-omega-one.vercel.app",
         images: [
           {
             url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
