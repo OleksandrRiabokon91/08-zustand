@@ -1,22 +1,18 @@
 // app/notes/filter/[...slug]/Notes.client.tsx
 "use client";
-
 import css from "@/app/notes/filter/[...slug]/Notes.client.module.css";
-
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
+import { Tag } from "@/types/note";
 import Link from "next/link";
-
+import fetchNotes from "@/lib/api";
+import type { FetchNotesResponse } from "@/lib/api";
 import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Loader from "@/components/Loader/Loader";
 import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
-import { Tag } from "@/types/note";
-
-import fetchNotes from "@/lib/api";
-import type { FetchNotesResponse } from "@/lib/api";
 
 interface NotesClientProps {
   initialData: FetchNotesResponse;

@@ -1,9 +1,8 @@
 "use client";
-
-import Link from "next/link";
 import css from "./TagsMenu.module.css";
 import { tagOptions } from "@/types/note";
 import { useState } from "react";
+import Link from "next/link";
 
 const TagsMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

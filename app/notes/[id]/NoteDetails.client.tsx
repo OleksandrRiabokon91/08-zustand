@@ -1,12 +1,11 @@
 "use client";
-
+import css from "@/app/notes/[id]/NoteDetails.client.module.css";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { getSingleNote } from "@/lib/api";
 import { Note } from "@/types/note";
 import Loader from "@/components/Loader/Loader";
 import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
-import css from "@/app/notes/[id]/NoteDetails.client.module.css";
 
 export default function NoteDetailsClient() {
   const params = useParams();

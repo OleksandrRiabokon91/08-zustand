@@ -12,7 +12,9 @@ npm install axios -->
 
 npm install @tanstack/react-query-devtools
 npm i react-paginate
-npm install formik
-npm install yup
+
+<!-- npm install formik
+npm install yup -->
+
 npm install use-debounce
 npm i zustand

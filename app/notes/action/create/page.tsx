@@ -1,45 +1,36 @@
 import css from "./CreateNote.module.css";
+import { Metadata } from "next";
 import NoteForm from "@/components/NoteForm/NoteForm";
-import type { NewNote, Tag } from "@/types/note";
-import { createNote } from "@/lib/api";
 
-export const metadata = {
-  title: "Create a new note",
-  description: "Page for creating a new note with title, content, and tag.",
-  alternates: { canonical: "/notes/create" },
+export const metadata: Metadata = {
+  title: "Create New Note | NoteHub",
+  description:
+    "Quickly create a new note in NoteHub — the efficient app for organizing your thoughts and ideas.",
   openGraph: {
-    title: "Create a new note",
-    description: "Fill out the form to create and save a new note.",
-    url: "https://your-domain.com/notes/create",
+    title: "Create New Note | NoteHub",
+    description:
+      "NoteHub App - create, edit, and organize your notes with tags, search, and filters.",
+    url: "https://notehub.com/notes/action/create",
     images: [
       {
-        url: "https://your-domain.com/og-images/create-note.png",
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
         width: 1200,
         height: 630,
-        alt: "Create Note Page",
+        alt: "Create New Note | NoteHub",
       },
     ],
   },
 };
 
 export default function CreateNote() {
-  async function createNoteAction(formData: FormData) {
-    "use server";
-
-    const title = String(formData.get("title") || "").trim();
-    const content = String(formData.get("content") || "").trim();
-    const tag = String(formData.get("tag") || "Todo") as Tag;
-
-    const payload: NewNote = { title, content, tag };
-    await createNote(payload);
-  }
-
   return (
-    <main className={css.main}>
-      <div className={css.container}>
-        <h1 className={css.title}>Create note</h1>
-        <NoteForm action={createNoteAction} />
-      </div>
-    </main>
+    <>
+      <main className={css.main}>
+        <div className={css.container}>
+          <h1 className={css.title}>Create note</h1>
+          <NoteForm />
+        </div>
+      </main>
+    </>
   );
 }

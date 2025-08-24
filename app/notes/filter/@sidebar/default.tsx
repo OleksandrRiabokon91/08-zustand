@@ -1,6 +1,6 @@
-import Link from "next/link";
 import css from "./SidebarNotes.module.css";
 import { tagOptions } from "@/types/note";
+import Link from "next/link";
 
 const SidebarNotes = () => {
   return (

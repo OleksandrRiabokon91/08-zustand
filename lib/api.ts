@@ -19,7 +19,7 @@ interface NotesParams {
   sortBy?: "created" | "updated";
 }
 
-interface CreateNotePayload {
+interface NewNoteData {
   title: string;
   content?: string;
   tag: NoteTag;
@@ -55,7 +55,7 @@ export default async function fetchNotes({
   return res.data;
 }
 
-export async function createNote(payload: CreateNotePayload): Promise<Note> {
+export async function createNote(data: NewNoteData): Promise<Note> {
   const url = `${BASE_URL}/notes`;
 
   const headers = {
@@ -64,7 +64,7 @@ export async function createNote(payload: CreateNotePayload): Promise<Note> {
     "Content-Type": "application/json",
   };
 
-  const res = await axios.post<Note>(url, payload, { headers });
+  const res = await axios.post<Note>(url, data, { headers });
 
   return res.data;
 }

@@ -6,3 +6,30 @@
 
   text-align: center;
 }
+
+.redirectButton {
+  padding: 0.6rem 1.2rem;
+  background-color: #0070f3;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin: 14px auto;
+  display: inline-block;
+}
+
+.redirectButton:hover {
+  background-color: #005bb5;
+}
+
+.redirectButton:active {
+  background-color: #004494;
+}
+
+.redirectButton:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
