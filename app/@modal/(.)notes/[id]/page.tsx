@@ -13,12 +13,10 @@ type Props = {
 export default async function NoteDetailsModalPage({ params }: Props) {
   const { id } = await params;
   const queryClient = new QueryClient();
-
   await queryClient.prefetchQuery({
     queryKey: ["note", id],
     queryFn: () => getSingleNote(id),
   });
-
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <NotePreviewClient />

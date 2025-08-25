@@ -13,9 +13,7 @@ import css from "./NotePreview.module.css";
 export default function NotePreviewClient() {
   const params = useParams();
   const id = String(params.id);
-
   const router = useRouter();
-
   const {
     data: note,
     isLoading,
@@ -25,9 +23,7 @@ export default function NotePreviewClient() {
     queryFn: () => getSingleNote(id),
     refetchOnMount: false,
   });
-
   const handleClose = () => router.back();
-
   if (isLoading)
     return (
       <Modal onClose={handleClose}>
@@ -40,7 +36,6 @@ export default function NotePreviewClient() {
         <ErrorMessage message="Something went wrong." />
       </Modal>
     );
-
   const formattedDate = note.updatedAt
     ? `Updated at: ${note.updatedAt}`
     : `Created at: ${note.createdAt}`;

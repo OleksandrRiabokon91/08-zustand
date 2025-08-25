@@ -2,7 +2,7 @@ import css from "./SidebarNotes.module.css";
 import { tagOptions } from "@/types/note";
 import Link from "next/link";
 
-const SidebarNotes = () => {
+export default function SidebarNotes() {
   return (
     <ul className={css.menuList}>
       <li className={css.menuItem}>
@@ -10,7 +10,6 @@ const SidebarNotes = () => {
           All notes
         </Link>
       </li>
-
       {tagOptions.map((tag) => (
         <li key={tag} className={css.menuItem}>
           <Link href={`/notes/filter/${tag}`} className={css.menuLink}>
@@ -20,5 +19,4 @@ const SidebarNotes = () => {
       ))}
     </ul>
   );
-};
-export default SidebarNotes;
+}

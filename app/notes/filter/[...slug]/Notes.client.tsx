@@ -24,14 +24,11 @@ export default function NotesClient({
   selectedTag,
 }: NotesClientProps) {
   const [currentPage, setCurrentPage] = useState(1);
-
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedSearchQuery] = useDebounce(searchQuery, 800);
-
   useEffect(() => {
     setCurrentPage(1);
   }, [debouncedSearchQuery, selectedTag]);
-
   const { data, isLoading, isError, error } = useQuery<FetchNotesResponse>({
     queryKey: ["notes", currentPage, debouncedSearchQuery, selectedTag],
     queryFn: () =>
@@ -44,7 +41,6 @@ export default function NotesClient({
         tag: selectedTag,
       }),
     refetchOnMount: false,
-
     placeholderData:
       currentPage === 1 && debouncedSearchQuery === "" && !selectedTag
         ? initialData
@@ -57,7 +53,6 @@ export default function NotesClient({
         <div className={css.left}>
           <SearchBox value={searchQuery} onChange={setSearchQuery} />
         </div>
-
         <div className={css.center}>
           {data?.totalPages && data.totalPages > 1 && (
             <Pagination
@@ -67,14 +62,12 @@ export default function NotesClient({
             />
           )}
         </div>
-
         <div className={css.right}>
           <Link href={"/notes/action/create"} className={css.button}>
             Create note +
           </Link>
         </div>
       </header>
-
       {isLoading ? (
         <Loader />
       ) : isError ? (

@@ -4,23 +4,19 @@ import { tagOptions } from "@/types/note";
 import { useState } from "react";
 import Link from "next/link";
 
-const TagsMenu = () => {
+export default function TagsMenu() {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
-
   const handleSelect = () => {
     setIsOpen(false);
   };
-
   return (
     <div className={css.menuContainer}>
       <button className={css.menuButton} onClick={toggleMenu}>
         Notes ▾
       </button>
-
       {isOpen && (
         <ul className={css.menuList}>
           <li className={css.menuItem}>
@@ -32,7 +28,6 @@ const TagsMenu = () => {
               All notes
             </Link>
           </li>
-
           {tagOptions.map((tag) => (
             <li key={tag} className={css.menuItem}>
               <Link
@@ -48,6 +43,4 @@ const TagsMenu = () => {
       )}
     </div>
   );
-};
-
-export default TagsMenu;
+}

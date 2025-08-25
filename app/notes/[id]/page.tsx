@@ -14,9 +14,7 @@ type Props = {
 
 export default async function NoteDetailsPage({ params }: Props) {
   const { id } = await params;
-
   const queryClient = new QueryClient();
-
   await queryClient.prefetchQuery({
     queryKey: ["note", id],
     queryFn: () => getSingleNote(id),
@@ -31,13 +29,11 @@ export default async function NoteDetailsPage({ params }: Props) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-
   try {
     const note = await getSingleNote(id);
     const title = note.title.slice(0, 9);
     const description =
       note.content?.slice(0, 14) || "NoteHub - detailed view of your note";
-
     return {
       title,
       description,

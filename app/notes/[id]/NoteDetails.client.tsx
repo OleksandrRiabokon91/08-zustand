@@ -10,7 +10,6 @@ import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 export default function NoteDetailsClient() {
   const params = useParams();
   const id = String(params.id);
-
   const {
     data: note,
     isLoading,
@@ -20,14 +19,11 @@ export default function NoteDetailsClient() {
     queryFn: () => getSingleNote(id),
     refetchOnMount: false,
   });
-
   if (isLoading) return <Loader />;
   if (error || !note) return <ErrorMessage message="Something went wrong." />;
-
   const formattedDate = note.updatedAt
     ? `Updated at: ${note.updatedAt}`
     : `Created at: ${note.createdAt}`;
-
   return (
     <div className={css.container}>
       <div className={css.item}>
